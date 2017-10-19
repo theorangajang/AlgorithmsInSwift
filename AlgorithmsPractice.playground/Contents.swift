@@ -107,15 +107,24 @@ print(Palindrome(str: "hannah"))
 print(Palindrome(str: "hanabaeh"))
 print()
 
-func LongestString(str: String){
+func LongestString(str: String) -> String{
     let mutableArr = str.split(separator: " ")
+    var max = 0
+    var maxString = ""
     
     for index in 0...mutableArr.count-1{
-        print(mutableArr[index])
+        let currentLen = mutableArr[index].count
+        let currentStr = mutableArr[index]
+        
+        if mutableArr[index].count > max{
+            max = currentLen
+            maxString = String(currentStr)
+        }
     }
+    return maxString
 }
 
-LongestString(str: "find the longest word in the problem description")
+print(LongestString(str: "find the longest word in the problem description"))
 
 
 
