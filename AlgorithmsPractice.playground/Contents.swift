@@ -323,11 +323,27 @@ print("Third Greatest World")
 print(ThirdGreatestWord(strArr:  ["hello", "world", "before", "all"]))
 print(ThirdGreatestWord(strArr:  ["mtyyyy", "bt","ctads"]))
 
-func TwoSum(arr: [Int]) -> {
+func TwoSum(arr: [Int]) -> [Any]{
+    let goalVal = arr[0]
+    var pairsArr = [Any]()
     
+    for index in 1..<arr.count-1{
+        var j = index+1
+        while(j <= arr.count-1){
+            let sum = arr[index] + arr[j]
+            if sum == goalVal{
+                let pairs = (arr[index], arr[j])
+                pairsArr.append(pairs)
+            }
+            j += 1
+        }
+    }
+    return pairsArr
 }
 
-
+print()
+print("Two Sum")
+print(TwoSum(arr: [7, 3, 5, 2, -4, 8, 11]))
 
 
 
