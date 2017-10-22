@@ -345,7 +345,56 @@ print()
 print("Two Sum")
 print(TwoSum(arr: [7, 3, 5, 2, -4, 8, 11]))
 
+func PrimeChecker(num: Int) -> Bool{
+    guard num > 9 else {
+        for numVal in 2..<num{
+            if num % numVal == 0{
+                return false
+            }
+        }
+        return true
+    }
+    
+    let numString = String(num)
+    var arrayIntegers: [String] = numString.characters.flatMap { String($0) }
+    print(arrayIntegers)
+    
+    var first = 0
+    var last = arrayIntegers.count - 1
+    
+    while first <= arrayIntegers.count-1{
+        if first != last{
+            let temp = arrayIntegers[first+1]
+            arrayIntegers[first+1] = arrayIntegers[first]
+            arrayIntegers[first] = temp
+        }else{
+            print(true)
+            let temp = arrayIntegers.popLast()
+            arrayIntegers.insert(temp!, at: 0)
+            print(arrayIntegers)
+        }
+        
+        var numVal = arrayIntegers.joined(separator: "")
+        print(numVal)
+        if let convertNum = Int(numVal) {
+            print(convertNum)
+            for numIndex in 2..<convertNum{
+                if num % numIndex == 0{
+                    print(numIndex)
+                    return false
+                }
+            }
+        }
+        
+        first += 1
+    }
+    
+    return true
+}
 
+print()
+print("Prime Checker")
+print(PrimeChecker(num: 901))
 
 
 
