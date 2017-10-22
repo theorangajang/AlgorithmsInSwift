@@ -14,10 +14,10 @@ func ReverseString(str: String) -> String{
     return reversed
 }
 
-print()
-print("Reverse String")
-print(ReverseString(str: "hello"));
-print()
+//print()
+//print("Reverse String")
+//print(ReverseString(str: "hello"));
+//print()
 
 func Fibonacci(num: Int) -> Int{
     if(num <= 2){
@@ -27,10 +27,10 @@ func Fibonacci(num: Int) -> Int{
     }
 }
 
-print()
-print("Fibonacci")
-print(Fibonacci(num: 7))
-print()
+//print()
+//print("Fibonacci")
+//print(Fibonacci(num: 7))
+//print()
 
 func Factorial(num: Int) -> Int{
     if(num == 1){
@@ -40,10 +40,10 @@ func Factorial(num: Int) -> Int{
     }
 }
 
-print()
-print("Factorial")
-print(Factorial(num: 7))
-print()
+//print()
+//print("Factorial")
+//print(Factorial(num: 7))
+//print()
 
 //need generic if you pass in an array or return array
 //as you have to define what the array will contain
@@ -73,10 +73,10 @@ func BinarySort(arr: Array<Int>){
     }
 }
 
-print()
-print("Binary Sort")
-print(BinarySort(arr: [0, 1, 0, 1, 1, 0, 1, 0]))
-print()
+//print()
+//print("Binary Sort")
+//print(BinarySort(arr: [0, 1, 0, 1, 1, 0, 1, 0]))
+//print()
 
 func CountBrackets(str: String) -> Bool{
     var totalAmountOfBrackets = 0
@@ -92,11 +92,11 @@ func CountBrackets(str: String) -> Bool{
     return totalAmountOfBrackets == 0
 }
 
-print()
-print("Counting Brackets")
-print(CountBrackets(str: "(())()"))
-print(CountBrackets(str: "(())("))
-print()
+//print()
+//print("Counting Brackets")
+//print(CountBrackets(str: "(())()"))
+//print(CountBrackets(str: "(())("))
+//print()
 
 func Palindrome(str: String) -> Bool{
     var reversed = ""
@@ -109,11 +109,11 @@ func Palindrome(str: String) -> Bool{
     return reversed == str
 }
 
-print()
-print("Palindrome")
-print(Palindrome(str: "hannah"))
-print(Palindrome(str: "hanabaeh"))
-print()
+//print()
+//print("Palindrome")
+//print(Palindrome(str: "hannah"))
+//print(Palindrome(str: "hanabaeh"))
+//print()
 
 func LongestString(str: String) -> String{
     let mutableArr = str.split(separator: " ")
@@ -132,9 +132,9 @@ func LongestString(str: String) -> String{
     return maxString
 }
 
-print()
-print("Longest String")
-print(LongestString(str: "find the longest word in the problem description"))
+//print()
+//print("Longest String")
+//print(LongestString(str: "find the longest word in the problem description"))
 
 func InsertionSort(arr: [Int]) -> [Int]{
     guard arr.count > 1 else{
@@ -161,9 +161,9 @@ func InsertionSort(arr: [Int]) -> [Int]{
     return copyArr
 }
 
-print()
-print("Insertion Sort")
-print(InsertionSort(arr: [0,9,2,8,4,3,7,5]))
+//print()
+//print("Insertion Sort")
+//print(InsertionSort(arr: [0,9,2,8,4,3,7,5]))
 
 func SelectionSort(arr: [Int]) -> [Int]{
     guard arr.count > 1 else{
@@ -191,9 +191,9 @@ func SelectionSort(arr: [Int]) -> [Int]{
     return copyArr
 }
 
-print()
-print("Selection Sort")
-print(SelectionSort(arr: [0,9,2,8,4,3,7,5]))
+//print()
+//print("Selection Sort")
+//print(SelectionSort(arr: [0,9,2,8,4,3,7,5]))
 
 func BinarySearch(arr: [Int], val: Int) -> Int?{
     guard arr.count > 1 else{
@@ -221,9 +221,9 @@ func BinarySearch(arr: [Int], val: Int) -> Int?{
     return nil
 }
 
-print()
-print("Binary Search")
-print(BinarySearch(arr: [11, 59, 37, 61, 29, 43, 5, 41, 23], val: 61))
+//print()
+//print("Binary Search")
+//print(BinarySearch(arr: [11, 59, 37, 61, 29, 43, 5, 41, 23], val: 61))
 
 func MaxNumAppearances(arr: [Int]) -> [(Int,Int)]{
     var copyArr = arr
@@ -257,18 +257,18 @@ func MaxNumAppearances(arr: [Int]) -> [(Int,Int)]{
     return mostArr
 }
 
-print()
-print("Max Num Appearance")
-print(MaxNumAppearances(arr: [3, 2, 3, 4, 4, 4, 5, 5, 6]))
+//print()
+//print("Max Num Appearance")
+//print(MaxNumAppearances(arr: [3, 2, 3, 4, 4, 4, 5, 5, 6]))
 
 func DetermineIfTriangle(a: Int, b: Int, c: Int) -> Bool{
     return a+b > c && a+c > b && b+c > a ? true : false
 }
 
-print()
-print("Determine if a Triangle")
-print(DetermineIfTriangle(a: 0, b: 1, c: 1))
-print(DetermineIfTriangle(a: 2, b: 3, c: 4))
+//print()
+//print("Determine if a Triangle")
+//print(DetermineIfTriangle(a: 0, b: 1, c: 1))
+//print(DetermineIfTriangle(a: 2, b: 3, c: 4))
 
 func ReverseArr<T>(arr: [T]){
     var copyArr = arr
@@ -278,9 +278,9 @@ func ReverseArr<T>(arr: [T]){
     print(copyArr)
 }
 
-print()
-print("Reverse Array")
-print(ReverseArr(arr: [11, 59, 37, 61, 29, 43, 5, 41, 23]))
+//print()
+//print("Reverse Array")
+//print(ReverseArr(arr: [11, 59, 37, 61, 29, 43, 5, 41, 23]))
 
 func MultiplesOfThreeOrFive(num: Int) -> Int{
     guard num > 3 else{
@@ -295,12 +295,12 @@ func MultiplesOfThreeOrFive(num: Int) -> Int{
     return sum
 }
 
-print()
-print("Multiples of 3 or 5")
-print(MultiplesOfThreeOrFive(num: 10))
-print(MultiplesOfThreeOrFive(num: 0))
-print(MultiplesOfThreeOrFive(num: 1))
-print(MultiplesOfThreeOrFive(num: 2))
+//print()
+//print("Multiples of 3 or 5")
+//print(MultiplesOfThreeOrFive(num: 10))
+//print(MultiplesOfThreeOrFive(num: 0))
+//print(MultiplesOfThreeOrFive(num: 1))
+//print(MultiplesOfThreeOrFive(num: 2))
 
 func ThirdGreatestWord(strArr: [String]) -> String{
     var copyArr = strArr
@@ -318,10 +318,10 @@ func ThirdGreatestWord(strArr: [String]) -> String{
     return copyArr[2]
 }
 
-print()
-print("Third Greatest World")
-print(ThirdGreatestWord(strArr:  ["hello", "world", "before", "all"]))
-print(ThirdGreatestWord(strArr:  ["mtyyyy", "bt","ctads"]))
+//print()
+//print("Third Greatest World")
+//print(ThirdGreatestWord(strArr:  ["hello", "world", "before", "all"]))
+//print(ThirdGreatestWord(strArr:  ["mtyyyy", "bt","ctads"]))
 
 func TwoSum(arr: [Int]) -> [Any]{
     let goalVal = arr[0]
@@ -341,9 +341,9 @@ func TwoSum(arr: [Int]) -> [Any]{
     return pairsArr
 }
 
-print()
-print("Two Sum")
-print(TwoSum(arr: [7, 3, 5, 2, -4, 8, 11]))
+//print()
+//print("Two Sum")
+//print(TwoSum(arr: [7, 3, 5, 2, -4, 8, 11]))
 
 func PrimeChecker(num: Int) -> Bool{
     guard num > 9 else {
@@ -392,12 +392,47 @@ func PrimeChecker(num: Int) -> Bool{
     return true
 }
 
-print()
-print("Prime Checker")
-print(PrimeChecker(num: 901))
+//print()
+//print("Prime Checker")
+//print(PrimeChecker(num: 901))
 
+func ThreeSum(arr: [Int]) -> Bool{
+    var copyArr = arr
+    let mainVal = copyArr.removeFirst()
+    for i in 1...copyArr.count-1{
+        var temp = copyArr[i]
+        var j = i
+        while j > 0 && temp <= copyArr[j-1]{ //order of coditions matter***
+            copyArr[j] = copyArr[j-1]
+            j -= 1
+        }
+        copyArr[j] = temp
+    }
+    
+    for k in 0...copyArr.count-2{
+        var currentVal = copyArr[k]
+        var firstPointer = k+1
+        var lastPointer = copyArr.count-1
+        
+        while firstPointer < lastPointer{
+            let sum = currentVal+copyArr[firstPointer]+copyArr[lastPointer]
+            if sum < mainVal{
+                firstPointer += 1
+            }else if sum > mainVal{
+                lastPointer -= 1
+            }else if sum == mainVal{
+                print("current: \(currentVal) firstPointer: \(copyArr[firstPointer]) lastPointer \(copyArr[lastPointer])")
+                return true
+            }
+        }
+    }
+    
+    return false
+}
 
-
+//print()
+//print("Three Sum")
+//print(ThreeSum(arr: [8, 2, 1, 4, 10, 5, -1, -1]))
 
 
 
