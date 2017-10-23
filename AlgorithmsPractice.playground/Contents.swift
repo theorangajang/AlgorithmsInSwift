@@ -368,19 +368,14 @@ func PrimeChecker(num: Int) -> Bool{
             arrayIntegers[first+1] = arrayIntegers[first]
             arrayIntegers[first] = temp
         }else{
-            print(true)
             let temp = arrayIntegers.popLast()
             arrayIntegers.insert(temp!, at: 0)
-            print(arrayIntegers)
         }
         
         var numVal = arrayIntegers.joined(separator: "")
-        print(numVal)
         if let convertNum = Int(numVal) {
-            print(convertNum)
             for numIndex in 2..<convertNum{
                 if num % numIndex == 0{
-                    print(numIndex)
                     return false
                 }
             }
@@ -410,7 +405,7 @@ func ThreeSum(arr: [Int]) -> Bool{
     }
     
     for k in 0...copyArr.count-2{
-        var currentVal = copyArr[k]
+        let currentVal = copyArr[k]
         var firstPointer = k+1
         var lastPointer = copyArr.count-1
         
@@ -434,13 +429,86 @@ func ThreeSum(arr: [Int]) -> Bool{
 //print("Three Sum")
 //print(ThreeSum(arr: [8, 2, 1, 4, 10, 5, -1, -1]))
 
+public class Node<T> {
+    var data: T?
+    var next: Node?
+}
 
+public class LinkedList<T: Equatable>{
+    var head = Node<T>()
+    
+    func printAllKeys() {
+        var LLString = ""
+        var current: Node! = self.head
+        while current != nil && current.data != nil {
+            LLString.append("\(current.data!) -> ")
+            current = current.next
+        }
+        LLString.append("nil")
+        print(LLString)
+    }
+    
+    func addFirst(data: T){
+        var newNode = Node<T>()
+        newNode.data = data
+        newNode.next = head
+        head = newNode
+    }
+    
+    func add(data: T){
+        if head.data == nil{
+            self.head.data = data
+            return;
+        }else{
+            var currentNode = self.head
+            while currentNode.next != nil{
+                currentNode = currentNode.next!
+            }
+            let newNode = Node<T>()
+            newNode.data = data
+            currentNode.next = newNode
+        }
+    }
+    
+    func removeNode(atIndex: Int){
+        
+        if atIndex == 0{
+            head.data = nil
+            return;
+        }else{
+            var currentIndex = 0
+            var currentNode = head
+            var prevNode = Node<T>()
+            
+            while currentIndex < atIndex && currentNode.next != nil{
+                prevNode = currentNode
+                currentNode = currentNode.next!
+                currentIndex += 1
+            }
+            
+            if currentNode.next != nil{
+                prevNode.next = currentNode.next
+            }else{
+                prevNode.next = nil
+            }
+        }
+    }
+}
 
-
-
-
-
-
+//print()
+//print()
+//print("Linked List")
+//var LL = LinkedList<Int>()
+//LL.add(data: 3)
+//LL.add(data: 4)
+//LL.add(data: 5)
+//LL.add(data: 6)
+//LL.printAllKeys()
+//LL.removeNode(atIndex: 2)
+//LL.removeNode(atIndex: 2)
+//LL.addFirst(data: 1)
+//LL.addFirst(data: 2)
+//LL.printAllKeys()
 
 
 
