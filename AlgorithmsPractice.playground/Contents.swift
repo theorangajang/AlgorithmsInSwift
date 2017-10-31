@@ -576,12 +576,23 @@ func evenPair(_ str: String) -> Bool{
     return false
 }
 
-evenPair("3gy41d216")
-evenPair(")7r5gg812")
-evenPair("f09r27i8e67")
-evenPair("86")
+//evenPair("3gy41d216")
+//evenPair(")7r5gg812")
+//evenPair("f09r27i8e67")
+//evenPair("86")
 
+func bitToInt(_ bit: Int){
+    var intArr = Array(String(bit))
+    var total: Double = 0
+    
+    for i in stride(from: intArr.count-1, through: 0, by: -1){
+        
+        total += intArr[i] == "1" ? pow(2, Double(6-i)) : 0
+    }
+    print(total)
+}
 
+bitToInt(1000101)
 
 
 
