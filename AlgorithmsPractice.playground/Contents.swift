@@ -33,7 +33,7 @@ func Fibonacci(num: Int) -> Int{
 //print()
 
 func Factorial(num: Int) -> Int{
-    if(num == 1){
+    if(num == 1 || num == 0){
         return 1
     }else{
         return num * Fibonacci(num: num-1)
@@ -509,6 +509,54 @@ public class LinkedList<T: Equatable>{
 //LL.addFirst(data: 1)
 //LL.addFirst(data: 2)
 //LL.printAllKeys()
+
+func addDashes(_ dashString: String) -> String{
+    var copyStr = Array(dashString)
+    var newStr = ""
+    var i = 0
+    
+    while i < copyStr.count-1{
+        if let currentVal = Int(String(copyStr[i])){
+            newStr += String(currentVal)
+            if let nextVal = Int(String(copyStr[i+1])){
+                if currentVal % 2 != 0 && nextVal % 2 != 0{
+                    newStr += "-"
+                }
+            }
+        }
+        i += 1
+    }
+    
+    if let nextVal = Int(String(copyStr[i])){
+        newStr += String(nextVal)
+    }
+    
+    return newStr
+}
+
+print(addDashes("52351hello3455"))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
