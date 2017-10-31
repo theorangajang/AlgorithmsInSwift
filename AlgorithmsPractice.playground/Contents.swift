@@ -511,6 +511,10 @@ public class LinkedList<T: Equatable>{
 //LL.printAllKeys()
 
 func addDashes(_ dashString: String) -> String{
+    guard dashString.count > 1 else {
+        return dashString
+    }
+    
     var copyStr = Array(dashString)
     var newStr = ""
     var i = 0
@@ -534,11 +538,48 @@ func addDashes(_ dashString: String) -> String{
     return newStr
 }
 
-print(addDashes("52351hello3455"))
+//print(addDashes("52351hello3455"))
 
+func evenPair(_ str: String) -> Bool{
+    guard str.count > 1 else {
+        return false
+    }
+    var copyStr = Array(str)
+    var i = 0
+    
+    while i < copyStr.count-1{
+        var j = i+1
+        if let currentVal = Int(String(copyStr[i])){
+            if currentVal % 2 == 0{
+                var nextNum = String(copyStr[j])
+                while(Int(nextNum) != nil){
+                    let numVal = Int(nextNum)!
+                    if numVal % 2 == 0{
+                        print("did find pair!")
+                        return true
+                    }
+                    
+                    j += 1
+                    
+                    if j > copyStr.count-1{
+                        break
+                    }else{
+                        nextNum += String(copyStr[j])
+                    }
+                }
+                
+            }
+        }
+        i += 1
+    }
+    print("didn't find pair!")
+    return false
+}
 
-
-
+evenPair("3gy41d216")
+evenPair(")7r5gg812")
+evenPair("f09r27i8e67")
+evenPair("86")
 
 
 
