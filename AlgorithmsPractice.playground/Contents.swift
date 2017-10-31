@@ -586,13 +586,30 @@ func bitToInt(_ bit: Int){
     var total: Double = 0
     
     for i in stride(from: intArr.count-1, through: 0, by: -1){
-        
         total += intArr[i] == "1" ? pow(2, Double(6-i)) : 0
     }
     print(total)
 }
 
 bitToInt(1000101)
+
+func bitWiseTwo(_ bit: [String]) -> String{
+    let first = bit[0]
+    let second = bit[1]
+    var finalStr = ""
+    
+    for i in first.indices{
+        if first[i] == "1" && second[i] == "1"{
+            finalStr += "1"
+        }else{
+            finalStr += "0"
+        }
+    }
+    
+    return finalStr
+}
+
+bitWiseTwo(["10100", "11100"])
 
 
 
