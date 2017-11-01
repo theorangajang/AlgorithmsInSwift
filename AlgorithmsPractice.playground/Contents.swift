@@ -675,11 +675,93 @@ func numberSearch(_ str: String) -> Double{
     
 }
 
-numberSearch("Hello6 9World 2, Nic8e D7ay!")
+//numberSearch("Hello6 9World 2, Nic8e D7ay!")
 
+//triple of a number at any place in num1 and also a straight double of the same number in num2
+func tripleDouble(_ numOne: Int,and numTwo: Int) -> Int{
+    
+    guard numOne > 99 && numTwo > 9 else{
+        return 0
+    }
+    
+    var arrOne = Array(String(numOne))
+    var arrTwo = Array(String(numTwo))
+    
+    var i = 0
+    var j = 0
+    var tripleAmount = 1
+    var doubleAmount = 1
+    
+    while i < arrOne.count-2{
+        var currentIndex = i+1
+        let current = arrOne[i]
+        var next = arrOne[currentIndex]
+        tripleAmount = 1
+        
+        while currentIndex <= arrOne.count-1 && next == current{
+            next = arrOne[currentIndex]
+            
+            if next == current{
+                tripleAmount += 1
+            }
+            
+            if tripleAmount == 3 {
+                break
+            }
+            currentIndex += 1
+        }
+        
+        if tripleAmount == 3 {
+            
+            break
+        }
+        
+        i += 1
+    }
+    
+    while j < arrTwo.count-1{
+        var currentIndex = j+1
+        let current = arrTwo[j]
+        var next = arrTwo[currentIndex]
+        doubleAmount = 1
+        
+        while currentIndex <= arrTwo.count-1 && next == current{
+            next = arrTwo[currentIndex]
+            if next == current{
+                doubleAmount += 1
+            }
+            
+            if doubleAmount == 2{
+                break
+            }
+            currentIndex += 1
+        }
+        
+        if doubleAmount == 2{
+            break
+        }
+        
+        j += 1
+    }
+    
+    if tripleAmount == 3 && doubleAmount == 2{
+        print(1)
+        return 1
+    }else{
+        print(0)
+        return 0
+    }
+}
 
-
-
+tripleDouble(465555, and: 5579)
+tripleDouble(555666, and: 5589)
+tripleDouble(333, and: 33)
+tripleDouble(12334455, and: 12355555) // 0
+tripleDouble(555666, and: 5589)
+tripleDouble(556668, and: 556886) // 0
+tripleDouble(3776777, and: 87766)
+tripleDouble(17555, and: 55144)
+tripleDouble(800000006, and: 7800)
 
 
 
