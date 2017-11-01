@@ -591,7 +591,7 @@ func bitToInt(_ bit: Int){
     print(total)
 }
 
-bitToInt(1000101)
+//bitToInt(1000101)
 
 func bitWiseTwo(_ bit: [String]) -> String{
     let first = bit[0]
@@ -609,11 +609,49 @@ func bitWiseTwo(_ bit: [String]) -> String{
     return finalStr
 }
 
-bitWiseTwo(["10100", "11100"])
+//bitWiseTwo(["10100", "11100"])
 
+func arrayAddition(_ arr: [Int]) -> Bool{
+    
+    guard arr.count > 2 else {
+        return false
+    }
+    
+    var copyArr = arr
+    for i in 1...copyArr.count-1{
+        
+        var currentVal = copyArr[i]
+        var j = i
+        
+        while j > 0 && currentVal < copyArr[j-1]{
+            copyArr[j] = copyArr[j-1]
+            j -= 1
+        }
+        copyArr[j] = currentVal
+    }
+    
+    let greatestVal = copyArr.popLast()
+    
+    for j in 0..<copyArr.count-1{
+        var sum = copyArr[j]
+        var k = j+1
+        while k <= copyArr.count-1 {
+            sum += copyArr[k]
+            if sum == greatestVal{
+                print("found sum")
+                return true
+            }
+            k += 1
+        }
+    }
+    print("did not find sum")
+    return false
+}
 
-
-
+//arrayAddition([4, 6, 23, 10, 1, 3])
+arrayAddition([10,20,30,40,100])
+arrayAddition([10,12,500,1,-5,1,0])
+arrayAddition([2,6,18])
 
 
 
