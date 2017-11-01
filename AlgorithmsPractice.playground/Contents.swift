@@ -753,19 +753,73 @@ func tripleDouble(_ numOne: Int,and numTwo: Int) -> Int{
     }
 }
 
-tripleDouble(465555, and: 5579)
-tripleDouble(555666, and: 5589)
-tripleDouble(333, and: 33)
-tripleDouble(12334455, and: 12355555) // 0
-tripleDouble(555666, and: 5589)
-tripleDouble(556668, and: 556886) // 0
-tripleDouble(3776777, and: 87766)
-tripleDouble(17555, and: 55144)
-tripleDouble(800000006, and: 7800)
+//tripleDouble(465555, and: 5579)
+//tripleDouble(555666, and: 5589)
+//tripleDouble(333, and: 33)
+//tripleDouble(12334455, and: 12355555)
+//tripleDouble(555666, and: 5589)
+//tripleDouble(556668, and: 556886)
+//tripleDouble(3776777, and: 87766)
+//tripleDouble(17555, and: 55144)
+//tripleDouble(800000006, and: 7800)
 
 
+func checkParenthesesTwo(_ str: String){
+    guard str.count > 1 else{
+        print( ["(", ")"])
+        return
+    }
+    
+    var copyStr = Array(str)
+    var i = 0
+    
+    while i < copyStr.count-1{
+        var j = i
+        var total = 0
+        var rightIndex = j
+        var leftIndex = j
+        
+        while copyStr[j] == "("{
+            print("j before: \(j)")
+            rightIndex = j
+            total += 1
+            j += 1
+        }
+        print("before: \(total)")
+        
+        while copyStr[j] == ")"{
+            leftIndex = j
+            total -= 1
+            j += 1
+        }
+        print("after: \(total)")
+        print("j after: \(j)")
+        
+        while total != 0{
+            if total < 0{
+                copyStr.insert("(", at: rightIndex)
+                total += 1
+            }else if total > 0{
+                copyStr.insert(")", at: rightIndex)
+                total -= 1
+            }
+            leftIndex += 1
+            print("amt: \(copyStr.count)")
+        }
+        i = leftIndex
+        i += 1
+    }
+    print(i)
+    if copyStr.last == "("{
+        copyStr.append(")")
+    }
+    
+    print(copyStr)
+}
 
 
+checkParenthesesTwo("))()((())))(")
+checkParenthesesTwo(")(")
 
 
 
