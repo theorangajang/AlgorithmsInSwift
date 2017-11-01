@@ -649,11 +649,33 @@ func arrayAddition(_ arr: [Int]) -> Bool{
 }
 
 //arrayAddition([4, 6, 23, 10, 1, 3])
-arrayAddition([10,20,30,40,100])
-arrayAddition([10,12,500,1,-5,1,0])
-arrayAddition([2,6,18])
+//arrayAddition([10,20,30,40,100])
+//arrayAddition([10,12,500,1,-5,1,0])
+//arrayAddition([2,6,18])
 
+func numberSearch(_ str: String) -> Double{
+    var copyStr = str
+    var letterCount = 0
+    var digitCount = 0
+    let letters = CharacterSet.letters
+    let digits = CharacterSet.decimalDigits
+    
+    
+    for uni in copyStr.unicodeScalars {
+        if letters.contains(uni) {
+            letterCount += 1
+        } else if digits.contains(uni) {
+            digitCount += Int(String(uni))!
+        }
+    }
+    
+    var sum = (Double(digitCount)/Double(letterCount))*100
+    
+    return sum.rounded()/100
+    
+}
 
+numberSearch("Hello6 9World 2, Nic8e D7ay!")
 
 
 
