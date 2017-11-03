@@ -849,13 +849,39 @@ func amountOfAppearances(_ str: String) -> String{
     return newStr
 }
 
-print(amountOfAppearances("abrabbc255") == "a1b1r1a1b2c12152")
+//print(amountOfAppearances("abrabbc255") == "a1b1r1a1b2c12152")
 
+func SimpleMode(_ arr: [Int]) -> Int{
+    var copyArr = arr
+    var mostAppearance = 1
+    var mostVal = 0
+    var i = 0
+    
+    while i < copyArr.count-1{
+        var current = copyArr[i]
+        var currentAmount = 1
+        var j = i+1
+        
+        while j <= copyArr.count-1{
+            if current == copyArr[j]{
+                currentAmount += 1
+            }
+            j += 1
+        }
+        
+        if currentAmount > mostAppearance{
+            mostAppearance = currentAmount
+            mostVal = current
+        }
+        
+        i += 1
+    }
+    
+    return mostVal
+}
 
-
-
-
-
+print(SimpleMode([10, 4, 5, 2, 4]))
+print(SimpleMode([5, 10, 10, 6, 5]))
 
 
 
