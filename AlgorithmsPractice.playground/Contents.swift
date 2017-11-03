@@ -818,8 +818,49 @@ func checkParenthesesTwo(_ str: String){
 }
 
 
-checkParenthesesTwo("))()((())))(")
-checkParenthesesTwo(")(")
+//checkParenthesesTwo("))()((())))(")
+//checkParenthesesTwo(")(")
+
+//"abraabbc255" -> "a1b1r1a1b2c152"
+
+func amountOfAppearances(_ str: String) -> String{
+    var copyStr = Array(str)
+    var newStr = ""
+    var i = 0
+    while i < copyStr.count-1{
+        var currentLetter = copyStr[i]
+        var amount = 1
+        var j = i+1
+        
+        while j <= copyStr.count-1{
+            if copyStr[j] == currentLetter{
+                amount += 1
+            }else{
+                break
+            }
+            j += 1
+        }
+        
+        let fullLetter = "\(currentLetter)\(amount)"
+        newStr.append(fullLetter)
+        i = j
+    }
+    print(newStr)
+    return newStr
+}
+
+print(amountOfAppearances("abrabbc255") == "a1b1r1a1b2c12152")
+
+
+
+
+
+
+
+
+
+
+
 
 
 
