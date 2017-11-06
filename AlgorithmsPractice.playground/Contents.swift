@@ -880,11 +880,28 @@ func SimpleMode(_ arr: [Int]) -> Int{
     return mostVal
 }
 
-print(SimpleMode([10, 4, 5, 2, 4]))
-print(SimpleMode([5, 10, 10, 6, 5]))
+//print(SimpleMode([10, 4, 5, 2, 4]))
+//print(SimpleMode([5, 10, 10, 6, 5]))
 
+func elementManager(_ arr: [Int]) -> Int{
+    guard arr.count > 1 else {
+        return arr[0]
+    }
+    var copyArr = arr
+    while copyArr.count > 1{
+        var current = [Int]()
+        for i in 0..<copyArr.count-1{
+            let diff = copyArr[i+1] > copyArr[i] ? copyArr[i+1] - copyArr[i] :  copyArr[i] - copyArr[i+1]
+            current.append(diff)
+        }
+        copyArr = current
+    }
+    
+    return copyArr[0]
+}
 
-
+print(elementManager([4, 5, 1, 2, 7]))
+print(elementManager([4, 5, 1, 2]))
 
 
 
