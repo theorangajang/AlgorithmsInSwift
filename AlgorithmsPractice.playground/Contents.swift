@@ -916,9 +916,19 @@ func threeOrFive(_ val: Int) -> Int{
     return sum
 }
 
-print(threeOrFive(10))
+//print(threeOrFive(10))
 
+func swapBit(_ val: String) {
+    var copyVal = val.map { String($0) }
+    
+    for i in stride(from: 0, to: copyVal.count-1, by: 2){
+        (copyVal[i], copyVal[i+1]) = (copyVal[i+1], copyVal[i])
+    }
+    
+    print(copyVal.joined(separator: ""))
+}
 
+swapBit("011010")
 
 
 
