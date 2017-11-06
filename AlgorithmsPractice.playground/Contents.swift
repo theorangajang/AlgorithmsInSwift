@@ -900,11 +900,23 @@ func elementManager(_ arr: [Int]) -> Int{
     return copyArr[0]
 }
 
-print(elementManager([4, 5, 1, 2, 7]))
-print(elementManager([4, 5, 1, 2]))
+//print(elementManager([4, 5, 1, 2, 7]))
+//print(elementManager([4, 5, 1, 2]))
 
+func threeOrFive(_ val: Int) -> Int{
+    var copyVal = val
+    var sum = 0
+    
+    for i in 1..<val{
+        if i % 3 == 0 || i % 5 == 0{
+            sum += i
+        }
+    }
+    
+    return sum
+}
 
-
+print(threeOrFive(10))
 
 
 
