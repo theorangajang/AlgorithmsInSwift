@@ -1061,10 +1061,81 @@ func sumMultiplied(_ intArr: [Int]) -> Bool{
     return false
 }
 
-print(sumMultiplied([2, 5, 6, -6, 16, 2, 3, 6, 5, 3]))
+//print(sumMultiplied([2, 5, 6, -6, 16, 2, 3, 6, 5, 3]))
 
+func checkSerialNum(_ str: String) -> Bool{
+    guard str.count == 11 && str[str.index(str.startIndex, offsetBy: 3)] == "." && str[str.index(str.startIndex, offsetBy: 7)] == "." else {
+        return false
+    }
+    
+    var copyStr = str
+    var splitStr = copyStr.split(separator: ".")
+    var firstSum = 0
+    var firstSubSum = 0
+    var secSum = 0
+    var secSubSum = 0
+    var thirdSubsum = 0
+    
+    for i in 0...splitStr.count-1{
+        switch i {
+        case 0:
+            for j in 0...splitStr[i].count-1{
+                if let val = Int(String(describing: splitStr[i][splitStr[i].index(splitStr[i].startIndex, offsetBy: j)])) {
+                    if j != splitStr[i].count-1{
+                        firstSubSum += val
+                    }
+                    firstSum += val
+                }
+            }
+            
+            print("firstSub: \(firstSubSum)")
+            print("firstsum: \(firstSum)")
+            if let lastVal = Int(String(describing: splitStr[i][splitStr[i].index(splitStr[i].startIndex, offsetBy: splitStr.count-1)])) {
+                if firstSum % 2 != 0 && lastVal < firstSubSum{
+                    return false
+                }
+            }
+        case 1:
+            for j in 0...splitStr[i].count-1{
+                if let val = Int(String(describing: splitStr[i][splitStr[i].index(splitStr[i].startIndex, offsetBy: j)])) {
+                    if j != splitStr[i].count-1{
+                        secSubSum += val
+                    }
+                    secSum += val
+                }
+            }
+            print("secSub: \(secSubSum)")
+            print("secsum: \(secSum)")
+            if let lastVal = Int(String(describing: splitStr[i][splitStr[i].index(splitStr[i].startIndex, offsetBy: splitStr.count-1)])) {
+                if secSum % 2 == 0 && lastVal < secSubSum{
+                    return false
+                }
+            }
+            
+        case 2:
+            for j in 0...splitStr[i].count-1{
+                if let val = Int(String(describing: splitStr[i][splitStr[i].index(splitStr[i].startIndex, offsetBy: j)])) {
+                    if j != splitStr[i].count-1{
+                        thirdSubsum += val
+                    }
+                }
+            }
+            print("thirdSub: \(thirdSubsum)")
+            if let lastVal = Int(String(describing: splitStr[i][splitStr[i].index(splitStr[i].startIndex, offsetBy: splitStr.count-1)])) {
+                if lastVal < thirdSubsum{
+                    return false
+                }
+            }
+        default:
+            break
+        }
+    }
+    
+    return true
+}
 
-
+print(checkSerialNum("11.124.667"))
+print(checkSerialNum("114.568.112"))
 
 
 
