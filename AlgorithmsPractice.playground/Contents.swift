@@ -928,8 +928,35 @@ func swapBit(_ val: String) {
     print(copyVal.joined(separator: ""))
 }
 
-swapBit("011010")
+//swapBit("011010")
 
+func sumNumInString(_ strVal: String) -> Int{
+    
+    guard strVal.count > 1 else {
+        return Int(strVal)!
+    }
+    
+    var copyStrArr = Array(strVal)
+    var sum = 0
+    var i = 0
+    while i < copyStrArr.count-1{
+        var current = ""
+        if var numVal = Int(String(copyStrArr[i])) {
+            while i <= copyStrArr.count-1 && Int(String(copyStrArr[i])) != nil{
+                current += String(copyStrArr[i])
+                i += 1
+            }
+            sum += Int(current)!
+        }else{
+            i += 1
+        }
+    }
+    return sum
+}
 
-
+print(sumNumInString("1abc2x30yz67"))
+print(sumNumInString("4"))
+print(sumNumInString("1abc23"))
+print(sumNumInString("geeks4geeks"))
+print(sumNumInString("123abc"))
 
