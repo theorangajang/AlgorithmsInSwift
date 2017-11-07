@@ -989,9 +989,9 @@ func singleNum(_ intArr: [Int]) -> Int{
     return numVal
 }
 
-singleNum([8,8,7,7,6,6,1])
-singleNum([8,8,7,7,6,1,1])
-singleNum([8,8,7,3,3,4,4,55,55,6,6,1,1])
+//singleNum([8,7,7,6,6,1])
+//singleNum([8,8,7,7,6,1,1])
+//singleNum([8,8,7,3,3,4,4,55,55,6,6,1,1])
 
 func printPattern(_ n: Int) -> [Int]{
     var arr = [Int]()
@@ -1021,16 +1021,47 @@ func getPattern(_ i: inout Int,and n: inout Int,and goal: Int, and arr: inout [I
     return getPattern(&i, and: &n, and: goal, and: &arr)
 }
 
-printPattern(11)
-printPattern(12)
-printPattern(13)
-printPattern(14)
-printPattern(16)
-printPattern(17)
+//printPattern(11)
+//printPattern(12)
+//printPattern(13)
+//printPattern(14)
+//printPattern(16)
+//printPattern(17)
 
+func sumMultiplied(_ intArr: [Int]) -> Bool{
+    var copyArr = intArr
+    var sum = 0
+    for i in 1...copyArr.count-1{
+        let current = copyArr[i]
+        var j = i
+        
+        while j > 0 && current < copyArr[j-1]{
+            copyArr[j] = copyArr[j-1]
+            j -= 1
+        }
+        copyArr[j] = current
+    }
+    
+    for i in 0...copyArr.count-1{
+        sum += copyArr[i]
+    }
+    sum *= 2
 
+    var firstPointer = 0
+    var lastPointer = copyArr.count-1
+    
+    while firstPointer < lastPointer{
+        if copyArr[firstPointer]*copyArr[lastPointer] > sum{
+            return true
+        }else if copyArr[firstPointer]*copyArr[lastPointer] < sum{
+            firstPointer += 1
+        }
+    }
+    
+    return false
+}
 
-
+print(sumMultiplied([2, 5, 6, -6, 16, 2, 3, 6, 5, 3]))
 
 
 
