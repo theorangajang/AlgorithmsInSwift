@@ -993,9 +993,40 @@ singleNum([8,8,7,7,6,6,1])
 singleNum([8,8,7,7,6,1,1])
 singleNum([8,8,7,3,3,4,4,55,55,6,6,1,1])
 
+func printPattern(_ n: Int) -> [Int]{
+    var arr = [Int]()
+    var i = 0
+    var val = n
+    
+    return getPattern(&i, and: &val, and: n, and: &arr)
+}
 
+func getPattern(_ i: inout Int,and n: inout Int,and goal: Int, and arr: inout [Int]) -> [Int]{
+    if goal % 5 == 0 && i == (goal/5)*2{
+        arr.append(goal)
+        return arr
+    }else if goal % 5 != 0 && i == ((goal/5)*2)+3{
+        return arr
+    }
+    
+    arr.append(n)
+    if i < (goal/5){
+        n -= 5
+    }else if goal % 5 != 0 && i <= (goal/5){
+        n -= 5
+    }else{
+        n += 5
+    }
+    i += 1
+    return getPattern(&i, and: &n, and: goal, and: &arr)
+}
 
-
+printPattern(11)
+printPattern(12)
+printPattern(13)
+printPattern(14)
+printPattern(16)
+printPattern(17)
 
 
 
