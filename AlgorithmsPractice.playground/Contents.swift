@@ -954,9 +954,58 @@ func sumNumInString(_ strVal: String) -> Int{
     return sum
 }
 
-print(sumNumInString("1abc2x30yz67"))
-print(sumNumInString("4"))
-print(sumNumInString("1abc23"))
-print(sumNumInString("geeks4geeks"))
-print(sumNumInString("123abc"))
+//print(sumNumInString("1abc2x30yz67"))
+//print(sumNumInString("4"))
+//print(sumNumInString("1abc23"))
+//print(sumNumInString("geeks4geeks"))
+//print(sumNumInString("123abc"))
+
+func singleNum(_ intArr: [Int]) -> Int{
+    var copyArr = intArr
+    
+    for i in 1...copyArr.count-1{
+        let current = copyArr[i]
+        var j = i
+        
+        while j > 0 && current < copyArr[j-1]{
+            copyArr[j] = copyArr[j-1]
+            j -= 1
+        }
+        copyArr[j] = current
+    }
+    var numVal = 0
+    for i in 0..<copyArr.count-1{
+        if i == 0 || i == copyArr.count-2{
+            if copyArr[i] != copyArr[i+1]{
+                return copyArr[i]
+            }
+        }else{
+            if copyArr[i] != copyArr[i+1] && copyArr[i] != copyArr[i-1]{
+                numVal = copyArr[i]
+                break
+            }
+        }
+    }
+    return numVal
+}
+
+singleNum([8,8,7,7,6,6,1])
+singleNum([8,8,7,7,6,1,1])
+singleNum([8,8,7,3,3,4,4,55,55,6,6,1,1])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
