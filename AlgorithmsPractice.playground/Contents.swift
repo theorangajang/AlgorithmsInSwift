@@ -1173,10 +1173,24 @@ func multipleBrackets(_ str: String) -> String{
 }
 
 
-print(multipleBrackets("(coder)[byte)]"))
-print(multipleBrackets("(c([[od]]er)) b(yt[e])"))
+//print(multipleBrackets("(coder)[byte)]"))
+//print(multipleBrackets("(c([[od]]er)) b(yt[e])"))
 
+func threeNum(_ str: String) -> Bool{
+    var copyStr = str.split(separator: " ")
+    
+    for i in 0...copyStr.count-1{
+        for j in 0..<copyStr[i].count-1{
+            if let valOne = Int(String(copyStr[i][copyStr[i].index(copyStr[i].startIndex, offsetBy: j)])),
+                let valTwo = Int(String(copyStr[i][copyStr[i].index(after: copyStr[i].index(copyStr[i].startIndex, offsetBy: j))])){
+                return false
+            }
+        }
+    }
+    
+    return true
+}
 
-
-
+print(threeNum("2a3b5 w1o2rl3d g1gg9g2"))
+print(threeNum("21aa3a ggg4g4g6ggg"))
 
