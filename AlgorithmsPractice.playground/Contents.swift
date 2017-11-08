@@ -41,8 +41,8 @@ func Factorial(num: Int) -> Int{
 }
 
 //print()
-print("Factorial")
-print(Factorial(num: 7))
+//print("Factorial")
+//print(Factorial(num: 7))
 //print()
 
 //need generic if you pass in an array or return array
@@ -1235,13 +1235,58 @@ func addDigits(_ intVal: Int) -> Int{
     return Int(String(copyInt[0]))!
 }
 
-print(addDigits(38))
+//print(addDigits(38))
 //print(addDigits(3))
 //print(addDigits(100))
 
+func mathOperators(_ math: String){
+    var copyStr = Array(math)
+    var i = 0
+    var firstDigit = ""
+    var secDigit = ""
+    var currentTot = 0
+    
+    while i < copyStr.count-1{
+        var op = ""
+        while i <= copyStr.count-1 && copyStr[i] != "+" && copyStr[i] != "-" && copyStr[i] != "/" && copyStr[i] != "*"{
+            firstDigit.append(copyStr[i])
+            print("first: \(firstDigit)")
+            i += 1
+        }
+        
+        op.append(copyStr[i])
+        i += 1
+        
+        while i <= copyStr.count-1 && copyStr[i] != "+" && copyStr[i] != "-" && copyStr[i] != "/" && copyStr[i] != "*"{
+            secDigit.append(copyStr[i])
+            print("second \(secDigit)")
+            i += 1
+        }
+        
+        switch op {
+        case "+":
+            currentTot = Int(String(firstDigit))! + Int(String(secDigit))!
+            break
+        case "-":
+            currentTot = Int(String(firstDigit))! - Int(String(secDigit))!
+            break
+        case "/":
+            currentTot = (Int(String(firstDigit))! / Int(String(secDigit))!)
+            break
+        case "*":
+            currentTot = Int(String(firstDigit))! * Int(String(secDigit))!
+            break
+        default:
+            break
+        }
 
+        firstDigit = String(currentTot)
+        secDigit = ""
+    }
+    print(currentTot)
+}
 
-
+mathOperators("50+31*3/3*100")
 
 
 
