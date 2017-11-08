@@ -36,13 +36,13 @@ func Factorial(num: Int) -> Int{
     if(num == 1 || num == 0){
         return 1
     }else{
-        return num * Fibonacci(num: num-1)
+        return num * Factorial(num: num-1)
     }
 }
 
 //print()
-//print("Factorial")
-//print(Factorial(num: 7))
+print("Factorial")
+print(Factorial(num: 7))
 //print()
 
 //need generic if you pass in an array or return array
@@ -1210,8 +1210,34 @@ func arrMatching(_ arr:[String]){
     print(sumArr)
 }
 
-arrMatching(["[1, 2, 5, 6]", "[5, 2, 8, 11]"])
+//arrMatching(["[1, 2, 5, 6]", "[5, 2, 8, 11]"])
 
+func addDigits(_ intVal: Int) -> Int{
+    guard intVal > 9 else{
+        return intVal
+    }
+    
+    var copyInt = Array(String(intVal))
+    var length = copyInt.count
+    
+    while length > 1{
+        var sum = 0
+        for i in 0...copyInt.count-1{
+            if let val = Int(String(copyInt[i])){
+                sum += val
+            }
+        }
+        copyInt = Array(String(sum))
+        print(copyInt)
+        length = copyInt.count
+    }
+    
+    return Int(String(copyInt[0]))!
+}
+
+print(addDigits(38))
+//print(addDigits(3))
+//print(addDigits(100))
 
 
 
