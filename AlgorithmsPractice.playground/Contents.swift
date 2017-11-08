@@ -1134,9 +1134,47 @@ func checkSerialNum(_ str: String) -> Bool{
     return true
 }
 
-print(checkSerialNum("11.124.667"))
-print(checkSerialNum("114.568.112"))
+//print(checkSerialNum("11.124.667"))
+//print(checkSerialNum("114.568.112"))
 
+func multipleBrackets(_ str: String) -> String{
+    guard str.count > 1 else {
+        return "0"
+    }
+    
+    var copyStr = Array(str)
+    var squareBracketAmt = 0
+    var regBracketAmt = 0
+    var pairs = 0
+    
+    for i in 0...copyStr.count-1{
+        if copyStr[i] == "("{
+            regBracketAmt += 1
+        }else if copyStr[i] == ")"{
+            regBracketAmt -= 1
+            if regBracketAmt > -1{
+                pairs += 1
+            }
+        }else if copyStr[i] == "["{
+            squareBracketAmt += 1
+        }else if copyStr[i] == "]"{
+            squareBracketAmt -= 1
+            if squareBracketAmt > -1{
+                pairs += 1
+            }
+        }
+    }
+    
+    if regBracketAmt == 0 && squareBracketAmt == 0{
+        return "1 \(pairs)"
+    }else{
+        return "0"
+    }
+}
+
+
+print(multipleBrackets("(coder)[byte)]"))
+print(multipleBrackets("(c([[od]]er)) b(yt[e])"))
 
 
 
