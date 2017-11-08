@@ -1191,6 +1191,45 @@ func threeNum(_ str: String) -> Bool{
     return true
 }
 
-print(threeNum("2a3b5 w1o2rl3d g1gg9g2"))
-print(threeNum("21aa3a ggg4g4g6ggg"))
+//print(threeNum("2a3b5 w1o2rl3d g1gg9g2"))
+//print(threeNum("21aa3a ggg4g4g6ggg"))
+
+func arrMatching(_ arr:[String]){
+    var copyStrOne = arr[0]
+    var copyStrTwo = arr[1]
+    var sumArr = [Int]()
+    
+    for i in 0...copyStrOne.count-1{
+        if let valOne = Int(String(copyStrOne[copyStrOne.index(copyStrOne.startIndex, offsetBy: i)])),
+            let valTwo = Int(String(copyStrTwo[copyStrTwo.index(copyStrTwo.startIndex, offsetBy: i)])){
+            let sum = valOne + valTwo
+            sumArr.append(sum)
+        }
+    }
+    
+    print(sumArr)
+}
+
+arrMatching(["[1, 2, 5, 6]", "[5, 2, 8, 11]"])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
