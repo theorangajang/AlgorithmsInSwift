@@ -1286,7 +1286,25 @@ func mathOperators(_ math: String){
     print(currentTot)
 }
 
-mathOperators("50+31*3/3*100")
+//mathOperators("50+31*3/3*100")
+
+func squareArrays(_ arrOne: [Int],and arrTwo: [Int]) -> Bool{
+    var copyArrOne = arrOne
+    var copyArrTwo = arrTwo
+    
+    for i in 0...copyArrOne.count-1{
+        let squareVal = copyArrOne[i]*copyArrOne[i]
+        
+        if squareVal != copyArrTwo[i]{
+            return false
+        }
+    }
+    
+    return true
+}
+
+print(squareArrays([11, 121, 144, 19, 161, 19, 144, 19], and: [121, 14641, 20736, 361, 25921, 361, 20736, 361]))
+
 
 
 
