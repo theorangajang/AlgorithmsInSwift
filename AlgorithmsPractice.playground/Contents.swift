@@ -1303,12 +1303,30 @@ func squareArrays(_ arrOne: [Int],and arrTwo: [Int]) -> Bool{
     return true
 }
 
-print(squareArrays([11, 121, 144, 19, 161, 19, 144, 19], and: [121, 14641, 20736, 361, 25921, 361, 20736, 361]))
+//print(squareArrays([11, 121, 144, 19, 161, 19, 144, 19], and: [121, 14641, 20736, 361, 25921, 361, 20736, 361]))
 
+func tribonacciSequence(_ index: Int) -> Int{
+    guard index > 1 else {
+        return 1
+    }
+    
+    let tribArr = [1,1,1]
+    let currentIndex = 2
+    
+    return seq(currentIndex: currentIndex, valIndex: index, arr: tribArr)
+}
 
+func seq(currentIndex: Int, valIndex: Int, arr: [Int]) -> Int{
+    var copyArr = arr
+    let sum = copyArr[currentIndex] + copyArr[currentIndex-1] + copyArr[currentIndex-2]
+    if currentIndex == valIndex{
+        return copyArr[currentIndex]
+    }
+    copyArr.append(sum)
+    return seq(currentIndex: currentIndex+1, valIndex: valIndex, arr: copyArr)
+}
 
-
-
+print(tribonacciSequence(6))
 
 
 
