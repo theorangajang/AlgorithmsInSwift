@@ -1326,11 +1326,41 @@ func seq(currentIndex: Int, valIndex: Int, arr: [Int]) -> Int{
     return seq(currentIndex: currentIndex+1, valIndex: valIndex, arr: copyArr)
 }
 
-print(tribonacciSequence(6))
+//print(tribonacciSequence(6))
 
+func pigLatin(_ str: String) -> String{
+    guard str.count > 0 else {
+        return str
+    }
+    
+    var arrWithoutSpace = [String]()
+    var copyStr = str
+    var current = ""
+    
+    for i in 0...copyStr.count-1{
+        var startIndex = copyStr.index(copyStr.startIndex, offsetBy: i)
+        if copyStr[startIndex] != " "{
+            current.append(copyStr[startIndex])
+        }else if copyStr[startIndex] == " "{
+            arrWithoutSpace.append(current)
+            current = ""
+        }
+    }
+    
+    arrWithoutSpace.append(current)
+    current = ""
+    
+    for j in 0...arrWithoutSpace.count-1{
+        let endPhrase = j != arrWithoutSpace.count-1 ? "\(arrWithoutSpace[j].first!)ay " : "\(arrWithoutSpace[j].first!)ay"
+        arrWithoutSpace[j].remove(at: arrWithoutSpace[j].startIndex)
+        arrWithoutSpace[j].append(endPhrase)
+        current.append(arrWithoutSpace[j])
+    }
+    
+    return current
+}
 
-
-
+pigLatin("Pig latin is cool")
 
 
 
