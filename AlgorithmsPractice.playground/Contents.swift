@@ -1520,13 +1520,35 @@ func removebAndac(_ str: String) -> String{
     return final
 }
 
-print(removebAndac("acbac"))
-print(removebAndac("aababc"))
+//print(removebAndac("acbac"))
+//print(removebAndac("aababc"))
+
+func modExponentiation(_ str: String) -> Int{
+    var copy = Array(str)
+    var currentVal = ""
+    var intVals = [Int]()
+    
+    for i in 0...copy.count-1{
+        if copy[i] != " " && i < copy.count{
+            currentVal.append(copy[i])
+        }else{
+            intVals.append(Int(String(currentVal))!)
+            currentVal = ""
+        }
+    }
+    intVals.append(Int(String(currentVal))!)
+    
+//    var finalVal = 1
+//    for j in 1...intVals[1]{
+//        finalVal *= intVals[0]
+//    }
+    
+    return Int(pow(Double(intVals[0]), Double(intVals[1])).truncatingRemainder(dividingBy:  Double(intVals[2])))
+}
 
 
-
-
-
+print(modExponentiation("3 2 4"))
+print(modExponentiation("10 9 6"))
 
 
 
