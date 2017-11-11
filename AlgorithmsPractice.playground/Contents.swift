@@ -1360,7 +1360,144 @@ func pigLatin(_ str: String) -> String{
     return current
 }
 
-pigLatin("Pig latin is cool")
+//pigLatin("Pig latin is cool")
+
+class TicTacToe{
+    var board: [[Int]]
+    var playerOneTurn = true
+    var currentPlayer = 1
+    var validMove = true
+    var restartGame = false
+    
+    init(){
+        board = [[-1, -1, -1],
+                 [-1, -1, -1],
+                 [-1, -1, -1]]
+        print()
+        print("LETS BEGIN!!!!!!")
+        showBoard()
+    }
+    
+    func restart(){
+        board = [[-1, -1, -1],
+                 [-1, -1, -1],
+                 [-1, -1, -1]]
+        playerOneTurn = true
+        currentPlayer = 1
+        validMove = true
+        restartGame = false
+        print("restarting game...")
+        showBoard()
+    }
+    
+    func goPlayer(){
+        self.playerOneTurn = !self.playerOneTurn
+        currentPlayer = self.playerOneTurn ? 1 : 2
+        print("go Player \(currentPlayer)")
+        showBoard()
+    }
+    
+    func makeMove(_ x: Int,and y: Int){
+        print("player \(currentPlayer) just made move")
+        
+        checkBoard(x, and: y)
+        
+        if restartGame{
+            self.restart()
+        }else if validMove{
+            goPlayer()
+        }else{
+            print("player \(currentPlayer) choose different spot")
+            showBoard()
+        }
+    }
+    
+    func checkBoard(_ x: Int,and y: Int){
+        
+         if board[x][y] == 0 || board[x][y] == -1{
+            validMove = true
+            board[x][y] = currentPlayer
+        }else{
+            if board[x][y] == currentPlayer{
+                print("you have chosen this spot already")
+            }else{
+                print("player \(board[x][y]) has already moved there")
+            }
+            validMove = false
+        }
+        
+        if
+            //        HORIZONTAL
+                (board[0][0] == 1 && board[0][1] == 1 && board[0][2] == 1) ||
+                (board[1][0] == 1 && board[1][1] == 1 && board[1][2] == 1) ||
+                (board[2][0] == 1 && board[2][1] == 1 && board[2][2] == 1) ||
+                
+                (board[0][0] == 2 && board[0][1] == 2 && board[0][2] == 2) ||
+                (board[1][0] == 2 && board[1][1] == 2 && board[1][2] == 2) ||
+                (board[2][0] == 2 && board[2][1] == 2 && board[2][2] == 2) ||
+            //        VERTICAL
+                (board[0][0] == 1 && board[1][0] == 1 && board[2][0] == 1) ||
+                (board[0][1] == 1 && board[1][1] == 1 && board[2][1] == 1) ||
+                (board[0][2] == 1 && board[1][2] == 1 && board[2][2] == 1) ||
+                
+                (board[0][0] == 2 && board[1][0] == 2 && board[2][0] == 2) ||
+                (board[0][1] == 2 && board[1][1] == 2 && board[2][1] == 2) ||
+                (board[0][2] == 2 && board[1][2] == 2 && board[2][2] == 2) ||
+            //        DIAGONAL
+                (board[0][0] == 1 && board[1][1] == 1 && board[2][2] == 1) ||
+                (board[0][2] == 1 && board[1][1] == 1 && board[2][0] == 1) ||
+                
+                (board[0][0] == 2 && board[1][1] == 2 && board[2][2] == 2) ||
+                (board[0][2] == 2 && board[1][1] == 2 && board[2][0] == 2) {
+            print("player \(currentPlayer) has won!")
+            showBoard()
+            restartGame = true
+        }
+    }
+    
+    func showBoard(){
+        print()
+        print(board[0])
+        print(board[1])
+        print(board[2])
+        print()
+    }
+}
+
+var ticTacToeGame = TicTacToe()
+ticTacToeGame.makeMove(1, and: 1)
+ticTacToeGame.makeMove(1, and: 2)
+
+ticTacToeGame.restart()
+ticTacToeGame.makeMove(1, and: 1)
+ticTacToeGame.makeMove(1, and: 2)
+ticTacToeGame.makeMove(0, and: 1)
+ticTacToeGame.makeMove(0, and: 2)
+ticTacToeGame.makeMove(2, and: 1)
+//player 1 has won
+//now restarting game
+ticTacToeGame.makeMove(0, and: 1)
+ticTacToeGame.makeMove(0, and: 0)
+
+ticTacToeGame.makeMove(0, and: 2)
+ticTacToeGame.makeMove(2, and: 2)
+
+//testing to see if can choose same spot
+ticTacToeGame.makeMove(0, and: 2)
+
+ticTacToeGame.makeMove(1, and: 1)
+ticTacToeGame.makeMove(2, and: 1)
+ticTacToeGame.makeMove(1, and: 0)
+ticTacToeGame.makeMove(2, and: 0)
+//player 2 has won
+//now restarting game
+
+
+
+
+
+
+
 
 
 
