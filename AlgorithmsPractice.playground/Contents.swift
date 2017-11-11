@@ -1464,36 +1464,64 @@ class TicTacToe{
     }
 }
 
-var ticTacToeGame = TicTacToe()
-ticTacToeGame.makeMove(1, and: 1)
-ticTacToeGame.makeMove(1, and: 2)
-
-ticTacToeGame.restart()
-ticTacToeGame.makeMove(1, and: 1)
-ticTacToeGame.makeMove(1, and: 2)
-ticTacToeGame.makeMove(0, and: 1)
-ticTacToeGame.makeMove(0, and: 2)
-ticTacToeGame.makeMove(2, and: 1)
+//var ticTacToeGame = TicTacToe()
+//ticTacToeGame.makeMove(1, and: 1)
+//ticTacToeGame.makeMove(1, and: 2)
+//
+//ticTacToeGame.restart()
+//ticTacToeGame.makeMove(1, and: 1)
+//ticTacToeGame.makeMove(1, and: 2)
+//ticTacToeGame.makeMove(0, and: 1)
+//ticTacToeGame.makeMove(0, and: 2)
+//ticTacToeGame.makeMove(2, and: 1)
 //player 1 has won
 //now restarting game
-ticTacToeGame.makeMove(0, and: 1)
-ticTacToeGame.makeMove(0, and: 0)
-
-ticTacToeGame.makeMove(0, and: 2)
-ticTacToeGame.makeMove(2, and: 2)
+//ticTacToeGame.makeMove(0, and: 1)
+//ticTacToeGame.makeMove(0, and: 0)
+//
+//ticTacToeGame.makeMove(0, and: 2)
+//ticTacToeGame.makeMove(2, and: 2)
 
 //testing to see if can choose same spot
-ticTacToeGame.makeMove(0, and: 2)
-
-ticTacToeGame.makeMove(1, and: 1)
-ticTacToeGame.makeMove(2, and: 1)
-ticTacToeGame.makeMove(1, and: 0)
-ticTacToeGame.makeMove(2, and: 0)
+//ticTacToeGame.makeMove(0, and: 2)
+//
+//ticTacToeGame.makeMove(1, and: 1)
+//ticTacToeGame.makeMove(2, and: 1)
+//ticTacToeGame.makeMove(1, and: 0)
+//ticTacToeGame.makeMove(2, and: 0)
 //player 2 has won
 //now restarting game
 
+func removebAndac(_ str: String) -> String{
+    var copy = Array(str)
+    var final = ""
+    var i = 0
+    
+    while i < copy.count-1{
+        
+        if i == copy.count-2{
+            if "\(copy[i])\(copy[i+1])" == "bc"{
+                final.append("c")
+            }
+            break
+        }
+        
+        if copy[i] == "b"{
+            i += 1
+        }else if "\(copy[i])\(copy[i+1])" == "ac"{
+            i += 2
+        }else{
+            final.append(copy[i])
+            i += 1
+        }
+        
+    }
+    
+    return final
+}
 
-
+print(removebAndac("acbac"))
+print(removebAndac("aababc"))
 
 
 
