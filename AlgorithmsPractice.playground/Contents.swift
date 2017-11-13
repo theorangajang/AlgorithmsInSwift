@@ -1538,22 +1538,44 @@ func modExponentiation(_ str: String) -> Int{
     }
     intVals.append(Int(String(currentVal))!)
     
-//    var finalVal = 1
-//    for j in 1...intVals[1]{
-//        finalVal *= intVals[0]
-//    }
-    
     return Int(pow(Double(intVals[0]), Double(intVals[1])).truncatingRemainder(dividingBy:  Double(intVals[2])))
 }
 
 
-print(modExponentiation("3 2 4"))
-print(modExponentiation("10 9 6"))
+//print(modExponentiation("3 2 4"))
+//print(modExponentiation("10 9 6"))
 
+func hashtag(_ str: String) -> Bool{
+    guard str.count > 0 else{
+        return false
+    }
+    
+    var copyStr = str
+    var hashtag = "#"
+    var currentWord = ""
+    
+    for i in 0...copyStr.count-1{
+        var currentIndex = copyStr.index(copyStr.startIndex, offsetBy: i)
+        if copyStr[currentIndex] != " "{
+            currentWord.append(copyStr[currentIndex])
+        }else{
+            let capitalizeFirstLetter = String(describing: currentWord.first!).capitalized
+            currentWord.removeFirst()
+            currentWord.insert(contentsOf: capitalizeFirstLetter, at: currentWord.startIndex)
+            hashtag.append(currentWord)
+            currentWord = ""
+        }
+    }
+    
+    let capitalizeFirstLetter = String(describing: currentWord.first!).capitalized
+    currentWord.removeFirst()
+    currentWord.insert(contentsOf: capitalizeFirstLetter, at: currentWord.startIndex)
+    String(describing: currentWord.first).uppercased()
+    hashtag.append(currentWord)
+    
+    return hashtag.count < 140
+}
 
-
-
-
-
+hashtag("Hello there thanks for trying my Kata")
 
 
